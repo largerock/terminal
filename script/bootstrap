@@ -3,5 +3,4 @@ set -e
 
 # Main
 apt install zsh curl python3
-
 ln -s /usr/bin/python3 /usr/bin/python || echo "Exists"

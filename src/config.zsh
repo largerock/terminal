@@ -74,6 +74,8 @@ alias suse="boop opensuse bash"
 
 # Git
 alias nuke="git reset --hard HEAD && git clean -xdf"
+# Git add, commit, push
+alias poo="gau && gcan! && gp"
 
 # Project Init
 alias projinit="mkdir -p script && touch README.md CONTRIBUTING.md script/test script/bootstrap"
@@ -90,10 +92,20 @@ alias aws='docker run --rm -t $(tty &>/dev/null && echo "-i") -e AWS_ACCESS_KEY_
 alias awsnodes='aws ec2 describe-instances --query "Reservations[*].Instances[*].[Tags[?Key==\`Name\`].Value[],State.Name,KeyName,InstanceType,InstanceId,ImageId,SubnetId,NetworkInterfaces[*].Association.PublicIp,SecurityGroups[*].GroupId,NetworkInterfaces[*].PrivateIpAddress]"'
 
 # vim > nano
-alias nano="echo 'stop being bad, use vim to edit: '"
+alias vim="echo 'stop being bad, use nano to edit: '"
 
 # Update
-alias up="_ apt update;_ apt -y full-upgrade;_ apt -y autoremove"
+alias updoot="_ apt update;_ apt -y full-upgrade;_ apt -y autoremove"
+
+alias setup-docker="_ apt install docker.io \
+&& _ usermod -aG docker $USER \
+&& _ systemctl restart docker \
+&& echo 'Log out/in to finish the setup'"
+
+alias install-numix="mkdir -p ~/.themes \
+&& _ add-apt-repository ppa:numix/ppa \
+&& _ apt-get update \
+&& _ apt-get install numix-gtk-theme numix-icon-theme-circle numix-icon-theme-square"
 
 alias install-dracula="mkdir -p ~/.themes \
 && wget -O /tmp/Ant-Dracula.tar https://github.com/EliverLara/Ant-Dracula/releases/download/v1.3.0/Ant-Dracula.tar \
@@ -113,8 +125,8 @@ _ apt-get install /tmp/hyper.deb && \
 /opt/Hyper/resources/bin/hyper i hyper-font-ligatures
 /opt/Hyper/resources/bin/hyper i hyper-dracula && \
 /opt/Hyper/resources/bin/hyper i hyper-search && \
-_ update-alternatives --install /etc/alternatives/x-terminal-emulator hyper /opt/Hyper/hyper 100 && \
-sed -i \"s/fontFamily.*/fontFamily:'\\\"Fira Code\\\",monospace',/g\" /home/tyler/.hyper.js"
+sed -i \"s/fontFamily.*/fontFamily:'\\\"Fira Code\\\",monospace',/g\" /home/$USER/.hyper.js && \
+_ update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /opt/Hyper/hyper 50"
 
 # Probs update this frequently
 # https://www.jetbrains.com/toolbox/download/download-thanks.html?platform=linux
@@ -130,8 +142,15 @@ _ dpkg -i /tmp/megasync.deb"
 alias install-notable="wget -O /tmp/note.deb https://github.com/notable/notable/releases/download/v1.5.1/notable_1.5.1_amd64.deb && \
 _ dpkg -i /tmp/note.deb"
 
+alias install-screensavers="_ apt install -y \
+xscreensaver \
+xscreensaver-data-extra \
+xscreensaver-gl-extra \
+&& echo 'Go to   Settings > Keyboard > Add Custom Shortcut  and createa a shortcut with the command xscreensaver-command -lock \
+And add xscreensaver to your startup applications'"
+
 # Personal Prefs
-alias install-tyler="\
+alias install-base="\
 _ apt update \
 && _ apt install -y \
 	vim \
@@ -143,10 +162,6 @@ _ apt update \
 	network-manager-openvpn \
 	chrome-gnome-shell \
 	network-manager-openvpn-gnome \
-<<<<<<< HEAD
-=======
-&& _ snap install --classic code \
->>>>>>> 21440ec02bc698991bc915376b61adc95a5d97ea
 && _ snap install --classic slack \
 && _ snap install discord \
 && _ snap install spotify \
