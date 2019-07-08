@@ -120,6 +120,10 @@ alias install-gitkraken="_ apt-get update -y && _ apt-get install gconf2 gconf-s
 wget -O /tmp/gitkraken.deb https://release.gitkraken.com/linux/gitkraken-amd64.deb && \
 _ dpkg -i /tmp/gitkraken.deb"
 
+alias install-mega="wget -P ~/Downloads/ 'https://mega.nz/linux/MEGAsync/xUbuntu_18.04/amd64/megasync-xUbuntu_18.04_amd64.deb' \
+&& _ dpkg -i ~/Downloads/megasync-xUbuntu_18.04_amd64.deb \
+&& _ apt install -f"
+
 alias install-hyper="wget -O /tmp/hyper.deb https://releases.hyper.is/download/deb && \
 _ apt-get install /tmp/hyper.deb && \
 /opt/Hyper/resources/bin/hyper i hyper-font-ligatures
