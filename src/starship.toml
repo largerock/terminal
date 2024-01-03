@@ -63,7 +63,7 @@ style = "bold dimmed white"
 disabled = false
 
 [package]
-disabled = true
+disabled = false
 
 [python]
 format = "[$symbol$version]($style) "

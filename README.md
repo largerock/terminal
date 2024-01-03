@@ -18,21 +18,11 @@ git clone https://github.com/largerock/zsh.git ~/repos \
 sudo -E ~/repos/script/install
 ```
 
-### 2: Install & Setup the essentials
-After isntalling ZSH and setting the sournce you now have access to the alias'.
-You can use this one to install some useful programs
-```bash
-install-base
+
+
+# steps for installing on windows
+```powershell
+
+./script/bootstrap.bat          # installs the essentaials
+
 ```
-
-It will install the following
-- vim
-- ubuntu-desktop
-- keepassx
-- gnome-tweak-tool
-- clusterssh
-- fonts-firacode
-- chrome-gnome-shell
-
-Stolened from this handsome chap: https://github.com/tyhal/zsh
-(Changes made to be more global and add more alias)

@@ -1,52 +1,6 @@
 #!/usr/bin/env zsh
 # ~~~~~~~~~~~~~~~~~~~
 
-# Get standard distribution info
-. /etc/os-release
-
-# NOTE: For some reason needs to go early or doesn't work
-if [ $commands[kubectl] ]; then
-	source <(kubectl completion zsh)
-fi
-
-# ~~~~~~~~~~~~~~~~~~
-# Antigen Setup
-
-_ANTIGEN_INSTALL_DIR=""$HOME"/.antigen/"
-export _ANTIGEN_INSTALL_DIR
-mkdir -p "$_ANTIGEN_INSTALL_DIR"
-ANTI_FILE="$_ANTIGEN_INSTALL_DIR/antigen.zsh"
-
-if [ ! -f "$ANTI_FILE" ]; then
-	curl -L git.io/antigen >"$ANTI_FILE"
-fi
-
-source "$ANTI_FILE"
-
-# ~~~~~~~~~~~~~~~~~~
-# Antigen Config
-
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle pip
-antigen bundle command-not-found
-antigen bundle z
-antigen bundle docker-compose
-antigen bundle docker
-antigen bundle golang
-
-# External bundles
-if [ $commands[kubectl] ]; then
-	antigen bundle dbz/zsh-kubernetes
-fi
-antigen bundle djui/alias-tips
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle webyneter/docker-aliases.git
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle chrissicool/zsh-256color
-
 # Load the theme.
 antigen theme tyhal/spaceship-prompt
 

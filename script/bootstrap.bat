@@ -12,17 +12,9 @@ IF %ERRORLEVEL% EQU 0 (
     echo Chocolatey installed successfully.
 )
 
-REM install git (check if it is already installed)
-echo Installing Git...
-choco install git -y
-echo Git installed successfully.
+choco feature enable -n allowGlobalConfirmation
 
-REM install rust and cargo
-echo Installing Rust...
-choco install rust cargo -y
-echo Rust installed successfully.
+echo Installing packages...
+choco install git rust starship vscode telegram.install googlechrome nodejs --yes
+echo Packages installed successfully.
 
-REM install starship prompt
-echo Installing Starship Prompt...
-choco install starship -y
-echo Starship Prompt installed successfully.
