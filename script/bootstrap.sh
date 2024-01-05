@@ -5,19 +5,13 @@ set -e
 if [ "$(uname)" == "Darwin" ]; then
     OS="macos"
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    # check if sudo
+    if [ "$EUID" -ne 0 ]; then
+        echo "Please run as root"
+        exit
+    fi
     OS="linux"
 fi
-
-function install_vcpkg {
-    echo "Installing vcpkg"
-    # clone vcpkg to the home dir
-    git clone https://github.com/Microsoft/vcpkg.git ~/vcpkg
-    cd ~/vcpkg
-    ./bootstrap-vcpkg.sh
-    ./vcpkg integrate install
-}
-
-
 
 
 # if running macos install homebrew
@@ -25,22 +19,19 @@ if [ "$OS" == "macos" ]; then
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+    brew install starship zsh-syntax-highlighting zsh-autosuggestions
+
     echo "Installing oh-my-zsh..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-    install_vcpkg
-
-    # add the CMAKE_TOOLCHAIN_FILE variable to the .zshrc file
-    echo "export CMAKE_TOOLCHAIN_FILE=~/vcpkg/scripts/buildsystems/vcpkg.cmake" >> ~/.zshrc
-
     
+fi 
 
-    # install cmake, git and oh-my-zsh
-    # brew install cmake 
+# if running linux install zsh
+if [ "$OS" == "linux" ]; then
+    echo "Installing defaults for linux..."
 
-    echo "Installing Homebrew packages..."
-
+    sudo apt update
+    sudo apt install zsh curl python3 git ssh starship -y
+    ln -s /usr/bin/python3 /usr/bin/python || echo "Exists"
 fi
-
-
 

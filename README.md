@@ -6,23 +6,4 @@ if you're unsure you want to make the changes, please save copies of your curren
 this was good to read: https://medium.com/@selvamraju007/customize-your-terminal-using-ohmyzsh-agnoster-theme-1f0bc50716ef#:~:text=Configure%20Agnoster%20theme&text=For%20this%2C%20you%20first%20need,icons%20used%20by%20the%20theme.&text=After%20installing%20the%20font%2C%20you,zshrc%20configuration%20file.
 
 
-# New Linux OS setup
-For setting up a new ubuntu whatevernumber environment.
-Follow the steps below & have fun
-
-### 1: Clone the repo & run the install scripts
-```bash
-sudo apt update -y && \
-sudo apt install -y git && \
-git clone https://github.com/largerock/zsh.git ~/repos \
-sudo -E ~/repos/script/install
-```
-
-
-
-# steps for installing on windows
-```powershell
-
-./script/bootstrap.bat          # installs the essentaials
-
-```
+https://www.hanselman.com/blog/my-ultimate-powershell-prompt-with-oh-my-posh-and-the-windows-terminal
