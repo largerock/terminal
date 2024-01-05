@@ -22,8 +22,8 @@ if [ "$OS" == "macos" ]; then
     brew install starship zsh-syntax-highlighting zsh-autosuggestions
 
     echo "Installing oh-my-zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    echo "we're still running"
 fi 
 
 # if running linux install zsh
