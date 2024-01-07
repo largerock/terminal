@@ -45,22 +45,55 @@ alias install-vcpkg="git clone https://github.com/Microsoft/vcpkg.git ~/vcpkg \
 && ./bootstrap-vcpkg.sh \
 && ./vcpkg integrate install"
 
+# define function to install given app with brew cask
+function install-cask-app() {
+    # check if the app is installed with brew list and also inside the applications folder
+    if brew list --cask $1 > /dev/null 2>&1; then
+        echo "$1 is already installed"
+        return
+    elif [ -d "/Applications/$1.app" ]; then
+        echo "$1 is already installed"
+        return
+    else
+        brew install --cask $1
+    fi
+}
+
+function install-app() {
+    # check if the app is installed 
+    if brew list $1 > /dev/null 2>&1; then
+        echo "$1 is already installed"
+        return
+    else    
+        brew install $1
+    fi
+}
+
+# define function to install each app in a list
+function install-cask-apps() {
+    echo "Installing apps..."
+    # defne the list so that the for loop can iterate over each of th em 
+    list="iterm2 visual-studio-code google-chrome firefox slack discord spotify obsidian"
+    
+    for app in $list; do
+        echo "Installing $app..."
+    done
+}
+
+function install-apps() {
+    # defne the list 
+    list="git node cmake docker go starship"
+    for app in $list; do
+        echo "Installing $app..."
+    done
+}
+
 # Personal Prefs
 alias install-george="\
-brew install --cask \
-    nano \
-	keepassx \
-	cmake \
-    node \
-    go \
-    docker \
-    discord \
-    starship \
-    visual-studio-code \
-    spotify \
+install-apps \
 && install-vcpkg \
-&& install-notes
-&& brew install -y git node cmake docker go
+&& install-notes \
+&& install-apps
 "
 
 alias beans="echo nooooo"

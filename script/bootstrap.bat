@@ -14,6 +14,12 @@ IF %ERRORLEVEL% EQU 0 (
 
 choco feature enable -n allowGlobalConfirmation
 
+@REM install oh-my-posh
+winget install JanDeDobbeleer.OhMyPosh
+Install-Module -Name Terminal-Icons -Repository PSGallery
+
+
+
 echo Installing packages...
 choco install git rust starship vscode telegram.install googlechrome nodejs --yes
 echo Packages installed successfully.
