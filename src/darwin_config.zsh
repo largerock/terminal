@@ -73,9 +73,14 @@ function install-app() {
 function install-cask-apps() {
     echo "Installing apps..."
     # defne the list so that the for loop can iterate over each of th em 
-    list="iterm2 visual-studio-code google-chrome firefox slack discord spotify obsidian"
+    array="iterm2 visual-studio-code google-chrome firefox slack discord spotify obsidian"
+
+    ODIFS=$IFS
+    IFS=" "
+    read -A list <<< "$array"
+    IFS=$OLDIFS
     
-    for app in $list; do
+    for app in "${list[@]}"; do
         echo "Installing $app..."
     done
 }
@@ -83,6 +88,12 @@ function install-cask-apps() {
 function install-apps() {
     # defne the list 
     list="git node cmake docker go starship"
+    
+    ODIFS=$IFS
+    IFS=" "
+    read -A list <<< "$list"
+    IFS=$OLDIFS
+
     for app in $list; do
         echo "Installing $app..."
     done
