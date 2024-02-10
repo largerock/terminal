@@ -31,6 +31,6 @@ if [ "$OS" = "linux" ]; then
 
     sudo apt update
     sudo apt install zsh curl python3 git ssh -y
-    curl -fsSL https://starship.rs/install.sh | bash
+    curl -fsSL https://starship.rs/install.sh | sh
     ln -s /usr/bin/python3 /usr/bin/python || echo "Exists"
 fi
