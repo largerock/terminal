@@ -1,8 +1,9 @@
 # home sweet home
 
 ```bash
-./scrtips/bootstrap.sh
-./scripts/install.sh
+// windows .bat equivalents in same dir (warn they are WIP)
+./scrtip/bootstrap.sh
+./script/install.sh
 ```
 
 
