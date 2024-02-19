@@ -2,7 +2,7 @@
 
 ```bash
 // windows .bat equivalents in same dir (warn they are WIP)
-./scrtip/bootstrap.sh
+./script/bootstrap.sh
 ./script/install.sh
 ```
 
