@@ -6,8 +6,8 @@ justdoit
 sudo apt update -y && \
 sudo apt install -y git && \
 git clone https://github.com/largerock/terminal.git ~/.geroge_terminal; \
-sudo -E ~/.geroge_terminal/script/bootstrap && \
-~/.geroge_terminal/script/install && \
+sudo -E ~/.geroge_terminal/script/bootstrap.sh && \
+~/.geroge_terminal/script/install.sh && \
 ~/.geroge_terminal/script/test
 ```
 
