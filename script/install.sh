@@ -13,9 +13,9 @@ fi
 
 # check if running on macos or linux and set a variable
 if [ "$(uname)" = "Darwin" ]; then
-    echo "source $PWD/src/darwin_config.zsh" > ~/.zshrc
+    echo "source $PWD/.george_terminal/src/darwin_config.zsh" > ~/.zshrc
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
-    echo "source $PWD/src/linux_config.zsh" > ~/.zshrc
+    echo "source $PWD/.george_terminal/src/linux_config.zsh" > ~/.zshrc
 fi
 
 echo "Please log out and log back in"
