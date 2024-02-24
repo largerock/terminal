@@ -1,6 +1,6 @@
 # home sweet home
 
-justdoit
+### Linux
 ```bash
 # Get the general config
 sudo apt update -y && \
@@ -10,6 +10,20 @@ sudo -E ~/.geroge_terminal/script/bootstrap.sh && \
 ~/.geroge_terminal/script/install.sh && \
 ~/.geroge_terminal/script/test
 ```
+
+### MacOS
+*NOTE* you may need to install developer tools first (ssh & git) through invoke in CLI first or other method.
+then run this after thats donesies
+```bash
+# Get the general config
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
+git clone https://github.com/largerock/terminal.git ~/.geroge_terminal; \
+sudo -E ~/.geroge_terminal/script/bootstrap.sh && \
+~/.geroge_terminal/script/install.sh && \
+~/.geroge_terminal/script/test
+```
+
+### Win
 
 
 ```bash
