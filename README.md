@@ -18,7 +18,7 @@ then run this after thats donesies
 # Get the general config
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
 git clone https://github.com/largerock/terminal.git ~/.geroge_terminal; \
-sudo -E ~/.geroge_terminal/script/bootstrap.sh && \
+~/.geroge_terminal/script/bootstrap.sh && \
 ~/.geroge_terminal/script/install.sh && \
 ~/.geroge_terminal/script/test
 ```
