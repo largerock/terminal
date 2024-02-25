@@ -5,10 +5,10 @@
 # Get the general config
 sudo apt update -y && \
 sudo apt install -y git && \
-git clone https://github.com/largerock/terminal.git ~/.geroge_terminal; \
-sudo -E ~/.geroge_terminal/script/bootstrap.sh && \
-~/.geroge_terminal/script/install.sh && \
-~/.geroge_terminal/script/test
+git clone https://github.com/largerock/terminal.git ~/.george_terminal; \
+sudo -E ~/.george_terminal/script/bootstrap.sh && \
+~/.george_terminal/script/install.sh && \
+~/.george_terminal/script/test
 ```
 
 ### MacOS
@@ -16,10 +16,10 @@ sudo -E ~/.geroge_terminal/script/bootstrap.sh && \
 then run this after thats donesies
 ```bash
 # Get the general config
-git clone https://github.com/largerock/terminal.git ~/.geroge_terminal; \
-~/.geroge_terminal/script/bootstrap.sh && \
-~/.geroge_terminal/script/install.sh && \
-~/.geroge_terminal/script/test
+git clone https://github.com/largerock/terminal.git ~/.george_terminal; \
+~/.george_terminal/script/bootstrap.sh && \
+~/.george_terminal/script/install.sh && \
+~/.george_terminal/script/test
 ```
 
 ### Win
