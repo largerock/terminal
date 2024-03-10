@@ -35,6 +35,8 @@ alias build="cmake -Bbuild -H. -DCMAKE_BUILD_TYPE=Release -GNinja && cmake --bui
 # Update
 alias up="brew update"
 
+alias install-gstream="brew install gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly"
+
 alias install-nerdfonts="brew tap homebrew/cask-fonts \
 && brew install --cask font-jetbrains-mono-nerd-font"
 
