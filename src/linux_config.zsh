@@ -38,6 +38,11 @@ alias build="cmake -Bbuild -H. -DCMAKE_BUILD_TYPE=Release -GNinja && cmake --bui
 # Update
 alias up="sudo apt update;sudo apt -y full-upgrade;sudo apt -y autoremove"
 
+alias install-vcpkg="git clone https://github.com/Microsoft/vcpkg.git ~/vcpkg \
+&& cd ~/vcpkg \
+&& ./bootstrap-vcpkg.sh \
+&& ./vcpkg integrate install"
+
 # https://www.jetbrains.com/lp/mono/
 alias install-theme="mkdir -p ~/.themes \
 && wget -O /tmp/mono.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.0/JetBrainsMono.zip \
@@ -63,10 +68,7 @@ sudo apt update \
 	vim \
     nano \
 	ubuntu-desktop \
-	keepassx \
 	gnome-tweak-tool \
-	clusterssh \
-	network-manager-openvpn \
 	chrome-gnome-shell \
 	network-manager-openvpn-gnome \
 && sudo snap install --classic go \
@@ -76,6 +78,21 @@ sudo apt update \
 && sudo snap install spotify \
 && install-theme \
 && install-notes"
+
+alias install-base="\
+sudo apt update \
+&& sudo apt install -y 
+	curl \
+	zip \
+	unzip \
+	tar \
+	nano \
+	cmkae \ 
+	clang \ 
+	git \
+	build-essential \
+	&& install-vcpkg"
+"
 
 export STARSHIP_CONFIG="$(dirname $0)/starship.toml"
 eval "$(starship init zsh)"
