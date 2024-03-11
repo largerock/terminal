@@ -92,7 +92,6 @@ sudo apt update \
 	git \
 	build-essential \
 	&& install-vcpkg"
-"
 
 export STARSHIP_CONFIG="$(dirname $0)/starship.toml"
 eval "$(starship init zsh)"
