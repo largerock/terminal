@@ -42,8 +42,9 @@ alias install-nerdfonts="brew tap homebrew/cask-fonts \
 
 alias install-term="brew install --cask iterm2"
 alias install-notes="brew install --cask obsidian"
-alias install-vcpkg="git clone https://github.com/Microsoft/vcpkg.git ~/vcpkg \
-&& cd ~/vcpkg \
+alias install-vcpkg="mkdir -p ~/thirdparty \
+git clone https://github.com/Microsoft/vcpkg.git ~/thirdparty/vcpkg \
+&& cd ~/thirdparty/vcpkg \
 && ./bootstrap-vcpkg.sh \
 && ./vcpkg integrate install"
 

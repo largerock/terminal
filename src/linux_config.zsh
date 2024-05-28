@@ -38,8 +38,8 @@ alias build="cmake -Bbuild -H. -DCMAKE_BUILD_TYPE=Release -GNinja && cmake --bui
 # Update
 alias up="sudo apt update;sudo apt -y full-upgrade;sudo apt -y autoremove"
 
-alias install-vcpkg="git clone https://github.com/Microsoft/vcpkg.git ~/vcpkg \
-&& cd ~/vcpkg \
+alias install-vcpkg="git clone https://github.com/Microsoft/vcpkg.git ~/thirdparty/vcpkg \
+&& cd ~/thirdparty/vcpkg \
 && ./bootstrap-vcpkg.sh \
 && ./vcpkg integrate install"
 
