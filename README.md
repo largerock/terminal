@@ -22,20 +22,25 @@ git clone https://github.com/largerock/terminal.git ~/.george_terminal; \
 ~/.george_terminal/script/install.sh && \
 ~/.george_terminal/script/test
 ```
+### Windows
 
-### Win
+To create a similar Windows version that runs the PowerShell scripts in the script folder, follow these steps:
 
+1. Open an admin PowerShell session.
+2. Install Chocolatey by running the following command:
+    ```
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+    ```
+3. Download and install the Agave Nerd Font from https://www.nerdfonts.com/font-downloads.
+4. Set the font to `Agave Nerd Font` for the following applications:
+    - Visual Studio Code (terminal font: `terminal.integrated.fontFamily`)
+    - PowerShell (admin)
+    - Windows Terminal
+5. Navigate to the script folder in the cloned repository.
+6. Run the `bootstrap.bat` and `install.bat` scripts.
 
-```bash
-// windows .bat equivalents in same dir (warn they are WIP)
-./script/bootstrap.bat
-./script/install.bat
-```
+This will set up the terminal on Windows using PowerShell scripts.
 
-### QA
-what is this? 
->setup for terminal on all platforms. defaults to using zsh on unix and oh-my-posh on windows with starship as a config ontop of it
-
-this was good to read: 
-https://medium.com/@selvamraju007/customize-your-terminal-using-ohmyzsh-agnoster-theme-1f0bc50716ef#:~:text=Configure%20Agnoster%20theme&text=For%20this%2C%20you%20first%20need,icons%20used%20by%20the%20theme.&text=After%20installing%20the%20font%2C%20you,zshrc%20configuration%20file.
-https://www.hanselman.com/blog/my-ultimate-powershell-prompt-with-oh-my-posh-and-the-windows-terminal
+For more information, you can refer to the following resources:
+- [Customize Your Terminal using Oh My Zsh Agnoster Theme](https://medium.com/@selvamraju007/customize-your-terminal-using-ohmyzsh-agnoster-theme-1f0bc50716ef#:~:text=Configure%20Agnoster%20theme&text=For%20this%2C%20you%20first%20need,icons%20used%20by%20the%20theme.&text=After%20installing%20the%20font%2C%20you,zshrc%20configuration%20file.)
+- [My Ultimate PowerShell Prompt with Oh My Posh and the Windows Terminal](https://www.hanselman.com/blog/my-ultimate-powershell-prompt-with-oh-my-posh-and-the-windows-terminal)
