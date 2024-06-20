@@ -12,6 +12,7 @@ sudo -E ~/.george_terminal/script/bootstrap.sh && \
 ```
 
 ### MacOS
+
 *NOTE* you may need to install developer tools first (ssh & git) through invoke in CLI first or other method.
 then run this after thats donesies
 ```bash
