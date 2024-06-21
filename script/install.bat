@@ -1,4 +1,4 @@
-xcopy /Y ".\src\starship.toml" "%USERPROFILE%\.config"
+xcopy /Y ".\src\starship.toml" "%USERPROFILE%\.config\"
 
 REM get the $PROFILE variable and copy the powershell-profile.ps1 file to it
 REM this is the file that will be executed when PowerShell starts
