@@ -1,26 +1,50 @@
 @echo off
-SET "ChocolateyInstall=C:\ProgramData\chocolatey"
-SET "PATH=%ChocolateyInstall%\bin;%PATH%"
 
-REM Check if Chocolatey is already installed
-choco -? >nul 2>&1
-IF %ERRORLEVEL% EQU 0 (
-    echo Chocolatey is already installed.
-) ELSE (
+:: Function to install OpenSSH Server
+:install_ssh
+echo Installing OpenSSH Server...
+dism /online /Add-Capability /CapabilityName:OpenSSH.Server~~~~0.0.1.0
+
+echo Starting SSH Server...
+net start sshd
+
+echo Setting SSH Server to start automatically...
+sc config sshd start=auto
+
+echo Allowing SSH through Windows Firewall...
+netsh advfirewall firewall add rule name="OpenSSH Server" dir=in action=allow protocol=TCP localport=22
+
+echo OpenSSH Server setup complete.
+goto :eof
+
+:: Function to allow ICMP (ping) traffic through Windows Firewall
+:allow_ping
+echo Allowing ICMP (ping) traffic through Windows Firewall...
+netsh advfirewall firewall add rule name="Allow ICMPv4-In" protocol=icmpv4:8,any dir=in action=allow
+netsh advfirewall firewall add rule name="Allow ICMPv6-In" protocol=icmpv6:8,any dir=in action=allow
+
+echo ICMP (ping) traffic allowed through the firewall.
+goto :eof
+
+:: Function to install Chocolatey
+:install_choco
+echo Checking for Chocolatey installation...
+choco -v >nul 2>&1
+if %errorlevel% neq 0 (
     echo Installing Chocolatey...
-    powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
+    @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
     echo Chocolatey installed successfully.
-
-    @REM enable this if we want to install from an admin console. last method is untested wtih current changes
-    @REM Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+) else (
+    echo Chocolatey is already installed.
 )
+goto :eof
 
-choco feature enable -n allowGlobalConfirmation
+:: Main script execution
+echo Starting setup...
 
-Install-Module -Name Terminal-Icons -Repository PSGallery
+call :install_choco
+call :install_ssh
+call :allow_ping
 
-echo Installing packages...
-@REM Rustlang.Rustup            - Rust programming language
-winget install Git.Git Starship.Starship Microsoft.VisualStudioCode Google.Chrome OpenJS.NodeJS   -e
-echo Packages installed successfully.
-
+echo Setup complete. OpenSSH Server is installed and running, ICMP (ping) traffic is allowed, and Chocolatey is installed.
+pause

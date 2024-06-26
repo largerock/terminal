@@ -24,6 +24,15 @@ git clone https://github.com/largerock/terminal.git ~/.george_terminal; \
 ```
 ### Windows
 
+```bash
+@echo off
+choco install git -y && ^
+git clone https://github.com/largerock/terminal.git %USERPROFILE%/.george_terminal && ^
+call %USERPROFILE%/.george_terminal/script/bootstrap.bat && ^
+echo Repository and bootstrap script executed successfully.
+```
+
+
 To create a similar Windows version that runs the PowerShell scripts in the script folder, follow these steps:
 
 1. Open an admin PowerShell session.
