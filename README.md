@@ -47,7 +47,6 @@ To create a similar Windows version that runs the PowerShell scripts in the scri
     - Windows Terminal
 5. Navigate to the script folder in the cloned repository.
 6. Run the `bootstrap.bat` and `install.bat` scripts.
-
 This will set up the terminal on Windows using PowerShell scripts.
 
 For more information, you can refer to the following resources:
