@@ -1,0 +1,6 @@
+[core]
+    editor = nano
+    excludesfile = /Users/george/.gitignore_global
+[user]
+    email = george.mprice@outlook.com
+    name = largerocks

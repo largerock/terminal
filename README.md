@@ -1,39 +1,30 @@
 # home sweet home
 
 ### Linux
+
 ```bash
 # Get the general config
 sudo apt update -y && \
 sudo apt install -y git && \
 git clone https://github.com/largerock/terminal.git ~/.george_terminal; \
-sudo -E ~/.george_terminal/script/bootstrap.sh && \
-~/.george_terminal/script/install.sh && \
-~/.george_terminal/script/test
+sudo -E ~/.george_terminal/scripts/bootstrap.sh && \
+~/.george_terminal/scripts/install.sh && \
+~/.george_terminal/scripts/test
 ```
+
+
 
 ### MacOS
 
-*NOTE* you may need to install developer tools first (ssh & git) through invoke in CLI first or other method.
-then run this after thats donesies
-```bash
-# Get the general config
-git clone https://github.com/largerock/terminal.git ~/.george_terminal; \
-~/.george_terminal/script/bootstrap.sh && \
-~/.george_terminal/script/install.sh && \
-~/.george_terminal/script/test
-```
+`cd ~/ && git clone https://github.com/largerock/dotfiles.git && cd dotfiles && ./scripts/bootstrap-darwin.sh`
+
+postinst `.~/.deps`
+
 ### Windows
 
-```bash
-@echo off
-choco install git -y && ^
-git clone https://github.com/largerock/terminal.git %USERPROFILE%/.george_terminal && ^
-call %USERPROFILE%/.george_terminal/script/bootstrap.bat && ^
-echo Repository and bootstrap script executed successfully.
-```
+`cd ~/ git clone https://github.com/largerock/dotfiles.git 
 
-
-To create a similar Windows version that runs the PowerShell scripts in the script folder, follow these steps:
+To create a similar Windows version that runs the PowerShell scriptss in the scripts folder, follow these steps:
 
 1. Open an admin PowerShell session.
 2. Install Chocolatey by running the following command:
@@ -45,9 +36,9 @@ To create a similar Windows version that runs the PowerShell scripts in the scri
     - Visual Studio Code (terminal font: `terminal.integrated.fontFamily`)
     - PowerShell (admin)
     - Windows Terminal
-5. Navigate to the script folder in the cloned repository.
-6. Run the `bootstrap.bat` and `install.bat` scripts.
-This will set up the terminal on Windows using PowerShell scripts.
+5. Navigate to the scripts folder in the cloned repository.
+6. Run the `bootstrap.bat` and `install.bat` scriptss.
+This will set up the terminal on Windows using PowerShell scriptss.
 
 For more information, you can refer to the following resources:
 - [Customize Your Terminal using Oh My Zsh Agnoster Theme](https://medium.com/@selvamraju007/customize-your-terminal-using-ohmyzsh-agnoster-theme-1f0bc50716ef#:~:text=Configure%20Agnoster%20theme&text=For%20this%2C%20you%20first%20need,icons%20used%20by%20the%20theme.&text=After%20installing%20the%20font%2C%20you,zshrc%20configuration%20file.)

@@ -93,8 +93,5 @@ sudo apt update \
 	build-essential \
 	&& install-vcpkg"
 
-# for pip installation with --user
-export PATH=$PATH:/home/george/.local/bin
 
-export STARSHIP_CONFIG="$(dirname $0)/starship.toml"
 eval "$(starship init zsh)"
